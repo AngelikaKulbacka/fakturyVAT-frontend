@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Breadcrumb } from 'react-bootstrap';
 import validator from 'validator';
@@ -41,12 +40,6 @@ const RegisterForm = () => {
             alert("Hasła się nie zgadzają");
             return;
         }
-        try {
-            const response = await axios.post('http://localhost:8080/rejestracja', formData);
-            // obsługa odpowiedzi z API
-        } catch (error) {
-            // obsługa błędów zapytania HTTP
-        }
     }
   };
 
@@ -87,7 +80,7 @@ const RegisterForm = () => {
             </Form.Group>
             <Button type="submit" style={{ margin: '20px' }}>Załóż konto</Button>
             <Breadcrumb>
-                <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">Możesz też się zalogować.</Breadcrumb.Item>
+                <Breadcrumb.Item href="http://localhost:3000/login">Możesz też się zalogować.</Breadcrumb.Item>
             </Breadcrumb>
         </Form>
     </div>
