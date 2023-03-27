@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Breadcrumb } from 'react-bootstrap';
 import validator from 'validator';
 
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    firstname: '',
+    lastname: '',
     password: '',
     confirmPassword: '',
     email: ''
@@ -26,16 +27,26 @@ const RegisterForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsFormSubmitted(true);
     if (isEmailValid) {
-      try {
-        const response = await axios.post('http://localhost:8080/register', formData);
-        // obsługa odpowiedzi z API
-      } catch (error) {
-        // obsługa błędów zapytania HTTP
-      }
+        if (!passwordRegex.test(formData.password)) {
+            alert("Hasło powinno zawierać minimum jedną małą literę, jedną dużą literę, jedną liczbę oraz jeden znak specjalny");
+            return;
+        }
+        if (formData.password !== formData.confirmPassword) {
+            alert("Hasła się nie zgadzają");
+            return;
+        }
+        try {
+            const response = await axios.post('http://localhost:8080/rejestracja', formData);
+            // obsługa odpowiedzi z API
+        } catch (error) {
+            // obsługa błędów zapytania HTTP
+        }
     }
   };
 
@@ -45,8 +56,14 @@ const RegisterForm = () => {
         <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column align-items-center">
             <Form.Group>
                 <Form.Label>
-                    Nazwa użytkownika:
-                    <Form.Control type="text" name="username" value={formData.username} onChange={handleInputChange} />
+                    Imię:
+                    <Form.Control type="text" name="firstname" value={formData.firstname} onChange={handleInputChange} />
+                </Form.Label>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>
+                    Nazwisko:
+                    <Form.Control type="text" name="lastname" value={formData.lastname} onChange={handleInputChange} />
                 </Form.Label>
             </Form.Group>
             <Form.Group>
@@ -69,6 +86,9 @@ const RegisterForm = () => {
                 </Form.Label>
             </Form.Group>
             <Button type="submit" style={{ margin: '20px' }}>Załóż konto</Button>
+            <Breadcrumb>
+                <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">Możesz też się zalogować.</Breadcrumb.Item>
+            </Breadcrumb>
         </Form>
     </div>
   );
