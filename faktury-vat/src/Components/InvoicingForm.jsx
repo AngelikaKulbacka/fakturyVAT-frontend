@@ -40,10 +40,8 @@ const InvoicingForm = () => {
             <Container style={{ width: "100%" }}>
                 <Row>
                     <Col>
-                        <Form.Label>Rodzaj dokumentu</Form.Label>
-                        <DropdownButton title="Dokument" onSelect={handleSelect}>
-                            <Dropdown.Item href="#/action-1">Faktura VAT</Dropdown.Item>
-                        </DropdownButton>
+                        <Form.Label>Rodzaj dokumentu:</Form.Label>
+                        <Form.Label>Faktura VAT</Form.Label>
                     </Col>
                     <Col>
                         <Form>

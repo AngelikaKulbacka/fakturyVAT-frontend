@@ -8,11 +8,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-
       <Router>
         <Routes>
           <Route exact path="/rejestracja" element={<RegisterForm />} />
-          <Route exact path="/login" element={<LoginForm />} />
+          <Route exact path="/logowanie" element={<LoginForm />} />
           <Route exact path="/wystaw" element={<InvoicingForm />} />
         </Routes>
       </Router>
