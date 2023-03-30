@@ -49,7 +49,7 @@ const RegisterForm = () => {
         }
 
         if (!passwordRegex.test(formData.password)) {
-            alert("Hasło powinno zawierać minimum jedną małą literę, jedną dużą literę, jedną liczbę oraz jeden znak specjalny");
+            alert("Hasło powinno zawierać minimum 8 znaków, w tym jedną małą literę, jedną dużą literę, jedną liczbę oraz jeden znak specjalny");
             return;
         }
 
