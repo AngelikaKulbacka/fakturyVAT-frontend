@@ -26,6 +26,9 @@ const InvoicingForm = () => {
                     <Nav.Item>
                         <Nav.Link eventKey="link-2">Dokumenty</Nav.Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link-2">Wyloguj</Nav.Link>
+                    </Nav.Item>
                 </Nav>
             </Container>
             <Container style={{ backgroundColor: "#e3e3e3", margin: '20px' }}>
