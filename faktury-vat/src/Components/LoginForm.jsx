@@ -75,7 +75,7 @@ const LoginForm = () => {
         </Form.Group>
         <Button type="submit" style={{ margin: '20px' }}>Zaloguj</Button>
         <Breadcrumb>
-          <Breadcrumb.Item href="http://localhost:3000/rejestracja">Możesz też utworzyć konto.</Breadcrumb.Item>
+          <Breadcrumb.Item href="http://localhost:3000/register">Możesz też utworzyć konto.</Breadcrumb.Item>
         </Breadcrumb>
       </Form>
     </div>

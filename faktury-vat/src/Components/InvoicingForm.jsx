@@ -15,19 +15,19 @@ const InvoicingForm = () => {
     return (
         <Navbar className="d-flex flex-column align-items-center">
             <Container>
-                <Navbar.Brand href="#home" style={{ fontSize: 40 }}>Fakturowo</Navbar.Brand>
+                <Navbar.Brand href="/" style={{ fontSize: 40 }}>Fakturowo</Navbar.Brand>
                 <Nav className="justify-content-end" >
                     <Nav.Item>
-                        <Nav.Link href="/home">Start</Nav.Link>
+                        <Nav.Link href="/">Start</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="link-1">Wystaw</Nav.Link>
+                        <Nav.Link href="/wystaw">Wystaw</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="link-2">Dokumenty</Nav.Link>
+                        <Nav.Link href="/">Dokumenty</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="link-2">Wyloguj</Nav.Link>
+                        <Nav.Link href="/">Wyloguj</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Container>

@@ -1,0 +1,17 @@
+.header-nav{
+    background: transparent !important;
+    transition: all 0.5s ease;
+    .brand-name{
+        color: whitesmoke;
+        font-size: xx-large;
+        font-family: 'Pacifico', cursive !important;
+        transition: all 0.5s ease;
+        &:hover{
+            color: #29a19c !important;
+            transition: color 0.3s ease-in-out;
+        }
+        &:focus{
+            color: white !important;
+        }
+    }
+}
