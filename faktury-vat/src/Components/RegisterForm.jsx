@@ -100,7 +100,9 @@ const RegisterForm = () => {
                         <Form.Control type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleInputChange} />
                     </Form.Label>
                 </Form.Group>
-                <Button type="submit" style={{ margin: '20px' }}>Załóż konto</Button>
+                <Button style={{ margin: '20px' }} variant="outline-success" className="button">
+                      Załóż konto
+                </Button>
                 <Breadcrumb>
                     <Breadcrumb.Item href="http://localhost:3000/login">Możesz też się zalogować.</Breadcrumb.Item>
                 </Breadcrumb>

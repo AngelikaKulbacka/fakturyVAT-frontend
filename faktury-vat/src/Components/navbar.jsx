@@ -43,11 +43,10 @@ const NavbarComponent = () => {
               <Nav.Link
                 className="px-3"
                 rel="noopener noreferrer"
-                href={"/"}
-                target="_blank"
+                href={"/login"}
               >
                 <Button variant="outline-success" className="button">
-                    Wyloguj
+                    Zaloguj
                 </Button>
               </Nav.Link>
               </Fade>

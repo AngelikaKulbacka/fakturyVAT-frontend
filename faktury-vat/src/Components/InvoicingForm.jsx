@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav, Row, Col, Dropdown, Form, DropdownButton } from 'react-bootstrap';
 import { useState } from 'react';
+import NavbarComponent from './navbar';
 
 const InvoicingForm = () => {
 
@@ -13,25 +14,10 @@ const InvoicingForm = () => {
     }
 
     return (
-        <Navbar className="d-flex flex-column align-items-center">
-            <Container>
-                <Navbar.Brand href="/" style={{ fontSize: 40 }}>Fakturowo</Navbar.Brand>
-                <Nav className="justify-content-end" >
-                    <Nav.Item>
-                        <Nav.Link href="/">Start</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/wystaw">Wystaw</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/">Dokumenty</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/">Wyloguj</Nav.Link>
-                    </Nav.Item>
-                </Nav>
-            </Container>
-            <Container style={{ backgroundColor: "#e3e3e3", margin: '20px' }}>
+        <Container>
+            <NavbarComponent/>
+            <Navbar>
+            <Container style={{ backgroundColor: "#e3e3e3", margin: '20px', marginTop: 80 }}>
                 <Navbar.Brand href="#home">Faktura VAT</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
@@ -40,6 +26,7 @@ const InvoicingForm = () => {
                 </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
+            </Navbar>
             <Container style={{ width: "100%" }}>
                 <Row>
                     <Col>
@@ -64,7 +51,7 @@ const InvoicingForm = () => {
                     </Col>
                 </Row>
             </Container>
-        </Navbar>
+            </Container>
     );
 };
 
