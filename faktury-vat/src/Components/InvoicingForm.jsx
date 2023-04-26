@@ -30,8 +30,10 @@ const InvoicingForm = () => {
             <Container style={{ width: "100%" }}>
                 <Row>
                     <Col>
-                        <Form.Label>Rodzaj dokumentu:</Form.Label>
-                        <Form.Label>Faktura VAT</Form.Label>
+                        <Form.Label style={{fontSize: 20 }}>
+                            Rodzaj dokumentu: 
+                            Faktura VAT
+                        </Form.Label>
                     </Col>
                     <Col>
                         <Form>
@@ -49,9 +51,129 @@ const InvoicingForm = () => {
                             </Form.Group>
                         </Form>
                     </Col>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Miejsce wystawienia</Form.Label>
+                                <Form.Control/>
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                    <Col>
+                    <Form>
+                        <Form.Group className="mb-3">
+                                <Form.Label>Data sprzedaży</Form.Label>
+                                <Form.Control type='date' onChange={date => setDate(date)} />
+                            </Form.Group>
+                        </Form>
+                    </Col>
                 </Row>
             </Container>
+            <Container style={{ width: "100%" }}>
+                <Row>
+                    <Col>
+                    <label>
+                        <input type="checkbox" onChange={() => {}} />
+                        <span>Firma</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" onChange={() => {}} />
+                        <span>Osoba</span>
+                    </label>
+                    </Col>
+                    <Col>
+                    <label>
+                        <input type="checkbox" onChange={() => {}} />
+                        <span>Firma</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" onChange={() => {}} />
+                        <span>Osoba</span>
+                    </label>
+                    </Col>
+                </Row>
             </Container>
+            <Container>
+                <Row>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Sprzedawca</Form.Label>
+                                <Form.Control placeholder="Nazwa firmy" />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Nabywca</Form.Label>
+                                <Form.Control placeholder="Nazwa firmy" />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>NIP</Form.Label>
+                                <Form.Control />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>NIP</Form.Label>
+                                <Form.Control />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Ulica</Form.Label>
+                                <Form.Control />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Ulica</Form.Label>
+                                <Form.Control />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Miasto / kod</Form.Label>
+                                <Form.Control />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                    <Col>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Miasto / kod</Form.Label>
+                                <Form.Control />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
+        </Container>
     );
 };
 
