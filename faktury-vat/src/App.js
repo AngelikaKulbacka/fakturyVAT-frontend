@@ -7,6 +7,7 @@ import HomeForm from './Components/HomeForm';
 import DocumentsListForm from './Components/DocumentsListForm';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EditCompanyDataForm from './Components/EditCompanyDataForm';
+import EditBuyerDataForm from './Components/EditBuyerDataForm';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" element={<HomeForm />} />
           <Route exact path="/dokumenty" element={<DocumentsListForm />} />
           <Route exact path="/companydata" element={<EditCompanyDataForm />} />
+          <Route exact path="/buyerdata" element={<EditBuyerDataForm />} />
         </Routes>
       </Router>
     </div>

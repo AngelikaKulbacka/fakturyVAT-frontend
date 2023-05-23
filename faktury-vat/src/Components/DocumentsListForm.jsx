@@ -39,7 +39,7 @@ const DocumentsListForm = () => {
                                 </Button>
                             </td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/buyerdata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -57,7 +57,7 @@ const DocumentsListForm = () => {
                                 </Button>
                             </td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/buyerdata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -77,7 +77,7 @@ const DocumentsListForm = () => {
                                 </Button>
                             </td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/buyerdata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -96,7 +96,7 @@ const DocumentsListForm = () => {
                                 </Button>
                             </td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/buyerdata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -116,7 +116,7 @@ const DocumentsListForm = () => {
                                 </Button>
                             </td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/buyerdata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -136,7 +136,7 @@ const DocumentsListForm = () => {
                                 </Button>
                             </td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/buyerdata">
                                     Edytuj
                                 </Button>
                             </td>
