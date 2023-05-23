@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Navbar, Row, Col, Form, Modal, Input, Button } from 'react-bootstrap';
+import { Container, Navbar, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import NavbarComponent from './navbar';
 
@@ -34,7 +34,7 @@ const DocumentsListForm = () => {
                         <tr>
                             <td>Dokument1</td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/companydata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -52,7 +52,7 @@ const DocumentsListForm = () => {
                         <tr>
                             <td>Dokument2</td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/companydata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -72,7 +72,7 @@ const DocumentsListForm = () => {
                         <tr>
                             <td>Dokument3</td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/companydata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -91,7 +91,7 @@ const DocumentsListForm = () => {
                         <tr>
                             <td>Dokument4</td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/companydata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -111,7 +111,7 @@ const DocumentsListForm = () => {
                         <tr>
                             <td>Dokument5</td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/companydata">
                                     Edytuj
                                 </Button>
                             </td>
@@ -131,7 +131,7 @@ const DocumentsListForm = () => {
                         <tr>
                             <td>Dokument6</td>
                             <td>
-                                <Button variant="outline-secondary" size="sm">
+                                <Button variant="outline-secondary" size="sm" href="/companydata">
                                     Edytuj
                                 </Button>
                             </td>

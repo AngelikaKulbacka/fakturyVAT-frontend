@@ -13,6 +13,26 @@ const InvoicingForm = () => {
         setValue(e)
     }
 
+    const [isPersonSelected1, setPersonSelected1] = useState(false);
+
+    const handleRadioButtonChange1 = (event) => {
+        if (event.target.id === 'radio2') {
+            setPersonSelected1(true);
+        } else {
+            setPersonSelected1(false);
+        }
+    };
+
+    const [isPersonSelected2, setPersonSelected2] = useState(false);
+
+    const handleRadioButtonChange2 = (event) => {
+        if (event.target.id === 'radio4') {
+            setPersonSelected2(true);
+        } else {
+            setPersonSelected2(false);
+        }
+    };
+
     return (
         <Container>
             <NavbarComponent/>
@@ -105,6 +125,7 @@ const InvoicingForm = () => {
                         label="Firma"
                         name="radios1"
                         id="radio1"
+                        onChange={handleRadioButtonChange1}
                         />
                         <Form.Check
                         style={{ marginLeft: 20 }}
@@ -112,6 +133,7 @@ const InvoicingForm = () => {
                         label="Osoba"
                         name="radios1"
                         id="radio2"
+                        onChange={handleRadioButtonChange1}
                         />
                     </Form.Group>
                     </Col>
@@ -149,6 +171,7 @@ const InvoicingForm = () => {
                         label="Firma"
                         name="radios2"
                         id="radio3"
+                        onChange={handleRadioButtonChange2}
                         />
                         <Form.Check
                         style={{ marginLeft: 20 }}
@@ -156,6 +179,7 @@ const InvoicingForm = () => {
                         label="Osoba"
                         name="radios2"
                         id="radio4"
+                        onChange={handleRadioButtonChange2}
                         />
                     </Form.Group>
                     </Col>
@@ -167,15 +191,35 @@ const InvoicingForm = () => {
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>Sprzedawca</Form.Label>
-                                <Form.Control placeholder="Nazwa firmy" />
+                                {!isPersonSelected1 && (
+                                    <Form.Control placeholder="Nazwa firmy" />
+                                )}
+                                {isPersonSelected1 && (
+                                    <>
+                                        <Form.Control placeholder="Imię" style={{ marginBottom: 10 }} />
+                                        <Form.Control placeholder="Nazwisko" style={{ marginBottom: 10 }} />
+                                        <Form.Label>PESEL</Form.Label>
+                                        <Form.Control />
+                                    </>
+                                )}
                             </Form.Group>
                         </Form>
                     </Col>
                     <Col>
                         <Form>
                             <Form.Group className="mb-3">
-                                <Form.Label>Nabywca</Form.Label>
-                                <Form.Control placeholder="Nazwa firmy" />
+                            <Form.Label>Nabywca</Form.Label>
+                                {!isPersonSelected2 && (
+                                    <Form.Control placeholder="Nazwa firmy" />
+                                )}
+                                {isPersonSelected2 && (
+                                    <>
+                                        <Form.Control placeholder="Imię" style={{ marginBottom: 10 }} />
+                                        <Form.Control placeholder="Nazwisko" style={{ marginBottom: 10 }} />
+                                        <Form.Label>PESEL</Form.Label>
+                                        <Form.Control />
+                                    </>
+                                )}
                             </Form.Group>
                         </Form>
                     </Col>
@@ -340,6 +384,8 @@ const InvoicingForm = () => {
                         <Form className="d-flex align-items-center" style={{ marginRight: 10 }}>
                             <Form.Group className="mb-3">
                                 <Form.Control placeholder="0.00" />
+                                <Form.Label style={{ marginTop: 15 }}>Razem</Form.Label>
+                                <Form.Label style={{ marginTop: 65 }}>Do zapłaty</Form.Label>
                             </Form.Group>
                         </Form>
                     </Col>
@@ -347,6 +393,9 @@ const InvoicingForm = () => {
                         <Form className="d-flex align-items-center" style={{ marginRight: 10 }}>
                             <Form.Group className="mb-3">
                                 <Form.Control placeholder="0.00" />
+                                <Form.Control style={{ marginTop: 10 }} placeholder="0.00" />
+                                <Form.Control style={{ marginTop: 10 }} placeholder="0.00" />
+                                <Form.Control style={{ marginTop: 10 }} placeholder="0.00" />
                             </Form.Group>
                         </Form>
                     </Col>
@@ -359,6 +408,7 @@ const InvoicingForm = () => {
                                     <Dropdown.Item href="#/action-2">5%</Dropdown.Item>
                                     <Dropdown.Item href="#/action-3">0%</Dropdown.Item>
                                 </DropdownButton>
+                                <Form.Control style={{ marginTop: 58 }} placeholder="23%" />
                             </Form.Group>
                         </Form>
                     </Col>
@@ -366,6 +416,8 @@ const InvoicingForm = () => {
                         <Form className="d-flex align-items-center" style={{ marginRight: 10 }}>
                             <Form.Group className="mb-3">
                                 <Form.Control placeholder="0.00" />
+                                <Form.Control style={{ marginTop: 10 }} placeholder="0.00" />
+                                <Form.Control style={{ marginTop: 10 }} placeholder="0.00" />
                             </Form.Group>
                         </Form>
                     </Col>
@@ -373,6 +425,8 @@ const InvoicingForm = () => {
                         <Form className="d-flex align-items-center" style={{ marginRight: 10 }}>
                             <Form.Group className="mb-3">
                                 <Form.Control placeholder="0.00" />
+                                <Form.Control style={{ marginTop: 10 }} placeholder="0.00" />
+                                <Form.Control style={{ marginTop: 10 }} placeholder="0.00" />
                             </Form.Group>
                         </Form>
                     </Col>
@@ -416,6 +470,9 @@ const InvoicingForm = () => {
                         </Form>
                     </Col>
                 </Row>
+                <Button variant="outline-secondary" size="md" href="/dokumenty" style={{ marginBottom: 40 }}>
+                    Zapisz
+                </Button>
             </Container>
         </Container>
     );
