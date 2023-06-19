@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, Button } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
+import AuthService from '../Service/AuthService';
 
 const NavbarComponent = () => {
     const changeBackground = () => {
@@ -40,15 +41,25 @@ const NavbarComponent = () => {
               <Nav.Link className="px-3" href="/dokumenty">
                 Dokumenty
               </Nav.Link>
-              <Nav.Link
-                className="px-3"
-                rel="noopener noreferrer"
-                href={"/login"}
-              >
-                <Button variant="outline-success" className="button">
-                    Zaloguj
-                </Button>
-              </Nav.Link>
+
+              {
+                (!AuthService.isUserLoggedIn()) 
+                  ? <Nav.Link
+                  className="px-3"
+                  rel="noopener noreferrer"
+                  href={"/login"}
+                >
+                  <Button variant="outline-success" className="button">Zaloguj</Button>
+                </Nav.Link> :
+                <Button
+                variant="outline-success"
+                className="button"
+                style={{color: 'red', visibility: AuthService.isUserLoggedIn() ? 'none' : 'visible'}}
+                onClick={() => {
+                  AuthService.logout();
+                  window.location.reload(true);
+                } }>Wyloguj</Button>
+              }    
               </Fade>
             </Nav>
           </Navbar.Collapse>

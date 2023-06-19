@@ -77,7 +77,7 @@ const LoginForm = () => {
               <Form.Control type="password" name="password" value={formData.password} onChange={handleInputChange} />
             </Form.Label>
           </Form.Group>
-          <Button style={{ margin: '20px' }} variant="outline-success" className="button">
+          <Button style={{ margin: '20px' }} variant="outline-success" className="button" type='submit'>
                       Zaloguj
           </Button>
           <Breadcrumb>
