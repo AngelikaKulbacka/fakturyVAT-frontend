@@ -2,8 +2,11 @@ import React from 'react';
 import { Nav, Navbar, Button } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import AuthService from '../Service/AuthService';
+import { useNavigate } from 'react-router-dom';
 
 const NavbarComponent = () => {
+    let navigate = useNavigate();
+
     const changeBackground = () => {
       let header = document.getElementsByClassName("header-nav")[0];
       if (window.scrollY < 200) {
@@ -35,13 +38,10 @@ const NavbarComponent = () => {
               <Nav.Link className="px-3" href="/">
                 Start
               </Nav.Link>
-              <Nav.Link className="px-3" href="/wystaw">
-                Wystaw
-              </Nav.Link>
-              <Nav.Link className="px-3" href="/dokumenty">
-                Dokumenty
-              </Nav.Link>
 
+              
+              <Nav.Link className="px-3" href="/dokumenty">Dokumenty</Nav.Link>
+              <Nav.Link className="px-3" href="/wystaw">Wystaw</Nav.Link>
               {
                 (!AuthService.isUserLoggedIn()) 
                   ? <Nav.Link
@@ -57,7 +57,7 @@ const NavbarComponent = () => {
                 style={{color: 'red', visibility: AuthService.isUserLoggedIn() ? 'none' : 'visible'}}
                 onClick={() => {
                   AuthService.logout();
-                  window.location.reload(true);
+                  navigate("/");
                 } }>Wyloguj</Button>
               }    
               </Fade>

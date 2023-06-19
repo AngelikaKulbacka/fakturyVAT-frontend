@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Row, Col, Form, ButtonGroup, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import { useState } from 'react';
 import NavbarComponent from './navbar';
+import AuthService from '../Service/AuthService';
 
 const InvoicingForm = () => {
 
@@ -42,7 +43,7 @@ const InvoicingForm = () => {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                    Zalogowany jako: <a href="#login">Mark Otto</a>
+                    Zalogowany jako: <a href="#login">{AuthService.getLoggedInUserEmail()}</a>
                 </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
