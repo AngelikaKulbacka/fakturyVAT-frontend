@@ -9,7 +9,9 @@ import { useNavigate } from 'react-router-dom';
 const InvoicingForm = () => {
 
     let navigate = useNavigate();
-
+    if (!AuthService.isUserLoggedIn()) {
+        navigate('/');
+    }
     const [date, setDate] = useState(new Date());
 
     const [value,setValue]=useState('');
@@ -43,7 +45,7 @@ const InvoicingForm = () => {
         dateIssueInvoice: Date(),
         placeIssue: "",
         dateSale: Date(),
-        seller: "",
+        seller: AuthService.getLoggedInUserEmail(),
         buyer: "",
         methodPayment: "przelew",
         accountNumber: "",
@@ -131,18 +133,38 @@ const InvoicingForm = () => {
     const handleSave = async () => {
         // Access the form data in the `formData` state variable
         
+        
+        
+        console.log(invoice);
+        
+        if (doZaplaty === 0) {
+            window.alert('wylicz kwote');
+            return;
+        }
+
         if (isPersonSelected1) {
             personSeller.nip = nip1;
             personSeller.buildingNumber = buildingNumber1;
             personSeller.city = city1;
             personSeller.street = street1;
             console.log(personSeller);
+
+
+            await axios.post("http://localhost:8080/seller-person", personSeller).then(() => {
+        }).catch(() => {
+            console.log("Something went wrong");
+        })
         } else {
             companySeller.nip = nip1;
             companySeller.buildingNumber = buildingNumber1;
             companySeller.city = city1;
             companySeller.street = street1;
             console.log(companySeller);
+
+            await axios.post("http://localhost:8080/seller-company", companySeller).then(() => {
+        }).catch(() => {
+            console.log("Something went wrong");
+        })
         }
       
         
@@ -152,19 +174,22 @@ const InvoicingForm = () => {
             personBuyer.city = city2;
             personBuyer.street = street2;
             console.log(personBuyer);
+            setInvoice({ ...invoice, "nip": nip2 });
+            await axios.post("http://localhost:8080/buyer-person", personBuyer).then(() => {
+        }).catch(() => {
+            console.log("Something went wrong");
+        })
         } else {
             companyBuyer.nip = nip2;
             companyBuyer.buildingNumber = buildingNumber2;
             companyBuyer.city = city2;
             companyBuyer.street = street2;
             console.log(companyBuyer);
-        }
-        
-        console.log(invoice);
-        
-        if (doZaplaty === 0) {
-            window.alert('wylicz kwote');
-            return;
+            setInvoice({ ...invoice, "nip": nip2 });
+            await axios.post("http://localhost:8080/buyer-company", companyBuyer).then(() => {
+        }).catch(() => {
+            console.log("Something went wrong");
+        })
         }
 
         // Perform operations to save the data to a database

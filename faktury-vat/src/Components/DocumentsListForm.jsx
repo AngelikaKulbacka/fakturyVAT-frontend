@@ -5,9 +5,15 @@ import NavbarComponent from './navbar';
 import AuthService from '../Service/AuthService';
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { useNavigate } from 'react-router-dom';
 
 const DocumentsListForm = () => {
+
+    let navigate = useNavigate();
+
+    if (!AuthService.isUserLoggedIn()) {
+        navigate('/');
+    }
 
     const [items, setItems] = useState([]);
 
@@ -50,7 +56,7 @@ const DocumentsListForm = () => {
 
                         {items.map((item, index) => (
                         <tr key={item.id}>
-                            <td>Dokument1</td>
+                            <td>{'Dokument' + (index + 1)}</td>
                             <td>
                                 <Link to={'/companydata'} state={item}>
                                     <Button variant="outline-secondary" size="sm">
