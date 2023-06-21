@@ -1,10 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Button } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavbarComponent from './navbar';
 import AuthService from '../Service/AuthService';
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 const DocumentsListForm = () => {
+
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        // Fetch data from Spring Boot API
+        axios.get('http://localhost:8080/invoices-vat/' + AuthService.getLoggedInUserEmail())
+        .then(response => {
+            console.log(response.data.length);
+            setItems(response.data)
+        } )
+        .catch(error => console.log(error));
+    }, []);
 
     return (
         <Container>
@@ -32,7 +47,34 @@ const DocumentsListForm = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+
+                        {items.map((item, index) => (
+                        <tr key={item.id}>
+                            <td>Dokument1</td>
+                            <td>
+                                <Link to={'/companydata'} state={item}>
+                                    <Button variant="outline-secondary" size="sm">
+                                        Edytuj
+                                    </Button>
+                                </Link>
+                            </td>
+                            <td>
+                                <Link to={'/buyerdata'} state={item}>
+                                    <Button variant="outline-secondary" size="sm">
+                                        Edytuj
+                                    </Button>
+                                </Link>
+                            </td>
+                            <td>
+                                <Link to={'/productdata'} state={item}>
+                                    <Button variant="outline-secondary" size="sm">
+                                        Edytuj
+                                    </Button>
+                                </Link> 
+                            </td>
+                        </tr>))}
+
+                        {/* <tr>
                             <td>Dokument1</td>
                             <td>
                                 <Button variant="outline-secondary" size="sm" href="/companydata">
@@ -146,7 +188,7 @@ const DocumentsListForm = () => {
                                     Edytuj
                                 </Button>
                             </td>
-                        </tr>
+                        </tr> */}
                     </tbody>
                 </table>
             </div>   

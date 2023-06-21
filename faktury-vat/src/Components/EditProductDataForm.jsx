@@ -2,8 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Form, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import NavbarComponent from './navbar';
+import {useLocation} from 'react-router-dom';
 
 const EditProductDataForm = () => {
+
+    const location = useLocation();
+    let data = location.state;
 
     return (
         <Container>

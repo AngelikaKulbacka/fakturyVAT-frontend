@@ -46,7 +46,8 @@ const LoginForm = () => {
       AuthService.saveSuccessfulLogin(formData.email, formData.password);
       console.log(AuthService.getLoggedInUserEmail());
       navigate("/");
-    }).catch(() => {
+    }).catch((e) => {
+      console.log(e);
       console.log("Failed");
     })
   };

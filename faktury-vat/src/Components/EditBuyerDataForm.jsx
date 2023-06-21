@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Form, Row, Col, Navbar, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import NavbarComponent from './navbar';
+import {useLocation} from 'react-router-dom';
 
 const EditBuyerDataForm = () => {
     const [isPersonSelected, setPersonSelected] = useState(false);
@@ -13,6 +14,9 @@ const EditBuyerDataForm = () => {
             setPersonSelected(false);
         }
     };
+
+    const location = useLocation();
+    let data = location.state;
 
     return (
         <Container>

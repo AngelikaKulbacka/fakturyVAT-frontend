@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Form, Row, Col, Navbar, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import NavbarComponent from './navbar';
+import {useLocation} from 'react-router-dom';
 
 const EditCompanyDataForm = () => {
     const [isPersonSelected, setPersonSelected] = useState(false);
@@ -13,6 +14,10 @@ const EditCompanyDataForm = () => {
             setPersonSelected(false);
         }
     };
+
+    const location = useLocation();
+    let data = location.state;
+    console.log(data.test);
 
     return (
         <Container>
@@ -58,7 +63,7 @@ const EditCompanyDataForm = () => {
                 <Form>
                     <Form.Group className="mb-3">
                         <Form.Label>NIP</Form.Label>
-                        <Form.Control />
+                        <Form.Control defaultValue={data.test} />
                     </Form.Group>
                 </Form>
                 <Form>
