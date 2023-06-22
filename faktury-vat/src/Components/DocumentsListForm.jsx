@@ -22,6 +22,7 @@ const DocumentsListForm = () => {
         axios.get('http://localhost:8080/invoices-vat/' + AuthService.getLoggedInUserEmail())
         .then(response => {
             console.log(response.data.length);
+            console.log(response.data);
             setItems(response.data)
         } )
         .catch(error => console.log(error));
@@ -47,9 +48,6 @@ const DocumentsListForm = () => {
                  <thead>
                         <tr>
                             <th>Nazwa </th>
-                            <th>Dane firmy</th>
-                            <th>Dane kontrahentów</th>
-                            <th>Dane towarów/usług </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,24 +58,11 @@ const DocumentsListForm = () => {
                             <td>
                                 <Link to={'/companydata'} state={item}>
                                     <Button variant="outline-secondary" size="sm">
-                                        Edytuj
+                                        Zobacz informacje
                                     </Button>
                                 </Link>
                             </td>
-                            <td>
-                                <Link to={'/buyerdata'} state={item}>
-                                    <Button variant="outline-secondary" size="sm">
-                                        Edytuj
-                                    </Button>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={'/productdata'} state={item}>
-                                    <Button variant="outline-secondary" size="sm">
-                                        Edytuj
-                                    </Button>
-                                </Link> 
-                            </td>
+                            
                         </tr>))}
 
                         {/* <tr>
